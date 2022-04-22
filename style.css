@@ -1,0 +1,344 @@
+:root {
+    /* Paleta de cores */
+    --logo-background: #4A4E69;
+    --body-background: #EFF1FF;
+    --h1-background: #CBC0D3;
+    --span-background: #FEEAFA;
+
+    --h1-color: #fff;
+    --span-color: #4A4E69;
+    --p-color: #23053A;
+
+    /* Fontes */
+
+    --p-font: 'Palanquin', sans-serif;
+    --h1-font: 'Staatliches', cursive;
+
+    /* Tamanho do REM = 10 px*/
+
+    font-size: 62.5%;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background: var(--body-background);
+
+}
+
+
+
+
+.container {
+    display: grid;
+    grid-template-columns: 1fr;
+    /* grid-template-rows: 280px 100px 1fr; */
+    grid-template-rows: 0.6fr 0.3fr 1.1fr;
+    margin-bottom: 5rem;
+    grid-template-areas:
+        "logo"
+        "descricao"
+        "product";
+}
+
+
+
+.logo {
+    grid-area: logo;
+    padding-top: 3.2rem;
+    width: 100%;
+    text-align: center;
+    background: var(--logo-background);
+}
+
+.h1-wrapper {
+    width: 100%;
+    padding: 8px 0;
+    background: var(--h1-background);
+}
+
+.h1-wrapper h1 {
+    color: var(--h1-color);
+    font-family: var(--h1-font);
+    font-size: 4rem;
+    line-height: 3.4rem;
+
+    text-align: center;
+
+    letter-spacing: 0.05em;
+
+    text-shadow: 0px 2px 2px rgba(0, 0, 0, 0.25);
+
+}
+
+.descricao {
+    grid-area: descricao;
+    padding: 1.4rem 4rem;
+
+}
+
+.descricao p {
+    color: var(--p-color);
+    font-family: var(--p-font);
+    font-size: 1.7rem;
+    line-height: 1.5rem;
+    text-align: center;
+
+
+
+}
+
+.product-WP {
+    grid-area: product;
+
+
+
+}
+
+.products {
+    position: relative;
+    animation: down-top 700ms backwards;
+
+}
+
+#prod {
+    display: none;
+
+}
+
+.products-wrapper {
+    display: grid;
+    gap: 3.7rem;
+    width: 32rem;
+    height: 250px;
+
+    margin: 0 auto;
+
+    grid-template-rows: repeat(2, 250px 450px);
+}
+
+
+.products-wrapper img {
+    width: 100%;
+    height: 100%;
+    border-radius: 2rem;
+
+    object-fit: cover;
+
+}
+
+.products span {
+    background: var(--span-background);
+    font-family: var(--h1-font);
+    font-size: 2rem;
+    color: var(--span-color);
+    padding: 0 2.3rem;
+    border-radius: 2rem;
+
+
+
+    position: absolute;
+    top: 22px;
+    right: 7px;
+
+    animation: top-down 700ms 350ms backwards;
+
+
+}
+
+@media (min-width:700px) {
+
+    .products-wrapper {
+        gap: 1rem;
+        width: 70rem;
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: repeat(2, 1fr 1fr);
+    }
+
+    .descricao p {
+        font-size: 2rem;
+        text-align: center;
+    }
+
+    #prod {
+        display: none;
+
+    }
+
+}
+
+
+@media (min-width:1280px) {
+
+    .container {
+        display: grid;
+        grid-template-columns: 30vw 70vw;
+        grid-template-rows: 30vh 70vh;
+        grid-template-areas:
+            "logo products"
+            "descricao products";
+
+
+    }
+
+    .logo {
+        grid-area: logo;
+        
+       
+    }
+
+    .descricao {
+        grid-area: descricao;
+        padding-top: 3.2rem;
+        text-align: center;
+        background: var(--logo-background);
+        padding: 0 10rem;
+    }
+
+    .product-WP {
+        grid-area: products;
+        
+
+    }
+
+    .products-wrapper {
+        display: grid;
+        width: 120rem;
+        gap: 3.2rem;
+        grid-template-columns: 1fr 1fr 1fr;          
+        grid-template-rows: repeat(2, 150px 350px);
+    }
+
+
+    .products-wrapper img {
+        width: 100%;
+        height: 100%;
+        border-radius: 2rem;
+
+        object-fit: cover;
+
+    }
+
+    #prod {
+        display: unset;
+
+    }
+
+
+}
+
+/* 
+
+
+@media (min-width:700px) {
+    .page {
+        width: 70rem;
+
+    }
+
+
+
+    .products-wrapper {
+        gap: 1rem;
+        width: 70rem;
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: repeat(2, 1fr 1fr);
+
+
+    }
+
+}
+
+@media (min-width:1280px) {
+
+    body {
+
+        display: grid;
+        grid-template-columns: 0.5fr 1.5fr;
+        grid-template-rows: 1fr 1fr;
+        gap: 0px 0px;
+        grid-template-areas:
+            "logo products"
+            "p products";
+
+
+
+    }
+
+    body::before {
+        content: '';
+        width: 414px;
+        height: 100%;
+
+        position: absolute;
+        top: 0;
+        left: 0;
+        z-index: -1;
+
+        background: var(--logo-background);
+
+    }
+
+    header {
+        grid-area: logo;
+    }
+
+    p {
+        grid-area: p;
+    }
+
+    .products-wrapper {
+        grid-area: products;
+
+        display: grid;
+     
+       
+        height: 250px;
+    
+        margin: 0 auto;
+    
+        grid-template-rows: repeat(2, 250px 450px);
+        
+    }
+
+
+
+
+
+
+
+
+} */
+
+
+/* Animações */
+
+@keyframes top-down {
+    0% {
+        opacity: 0;
+        transform: translateY(-15px);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes down-top {
+    0% {
+        opacity: 0;
+        transform: translateY(15px);
+
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+}
